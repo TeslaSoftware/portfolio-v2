@@ -30,7 +30,7 @@ header{
     align-items: center;
     width: 100%;
     z-index: 10;
-    border-bottom: 2px solid var(--grey-color-1);
+    box-shadow: 0 0.2rem var(--grey-color-1);
 }
 
 #brand{
@@ -75,8 +75,9 @@ header{
 #top-nav{    
     font-family: 'Audiowide', cursive;
     display: none;
-    width: 30%;    
-    text-align: right;      
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -88,7 +89,13 @@ nav>ul{
 
 #top-nav li{
     display: inline-block;
-    padding: 1rem;
+    margin: 0.5rem;
+    color: var(--grey-color-2);
+    text-shadow: 1px 1px 2px var(--black-color);
+}
+
+.top-nav-active > li{
+    border-bottom: 0.2rem solid var(--grey-color-2);
 }
 
 #off-canvas-nav{
@@ -98,7 +105,7 @@ nav>ul{
     width: 250px;
     background: var(--main-color-1);    
     opacity: 0.987;
-    box-shadow: 1px 1px 1px 1px var(--grey-color-1);
+    box-shadow: 1px 2px 1px 1px var(--grey-color-1);
     transition: 0.5s;
     font-size: 1.3rem;
 }
@@ -114,7 +121,7 @@ nav>ul{
     padding: 1rem 1.5rem;
     margin: 0.3rem;
     -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 61%, 79% 100%, 0 100%);
-clip-path: polygon(0% 0%, 100% 0, 100% 61%, 79% 100%, 0 100%);
+    clip-path: polygon(0% 0%, 100% 0, 100% 61%, 79% 100%, 0 100%);
     border-radius: 0.2rem;
     box-shadow:  13px 17px 88px -21px var(--main-color-1) inset;
 }
@@ -148,30 +155,31 @@ h2{
     background: var(--black-color);
     color: var(--grey-color-2);
     min-height: 12rem;
-    box-shadow: 0 0.3rem rgba(0,0,0,0.5);
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     width: 100%;
+    box-shadow: 0 0.2rem 0.1rem var(--black-color);
 }
-
 
 #headshot-container{
     padding: 1rem;
-    width: 25%;
     text-align: right;
+    width: 30%;
 }
 
 #headshot-img{
-    border-radius: 50%; 
-    border: 3px solid var(--main-color-2);
+    border-radius: 50%;
     max-height: 10rem;
+    box-shadow: 0 0 0.1rem 0.2rem var(--grey-color-1);
 }
 
 #terminal{
     padding: 2rem 1rem;
-    width: 75%;
     min-height: 10rem;
+    min-width: 50%;
+    width: 70%;
 }
 
 
@@ -223,9 +231,15 @@ h2{
     background: linear-gradient(var(--main-color-1) 10% , var(--grey-color-1) 66%, var(--grey-color-2) 120%); 
     opacity: 0.3;
 }
+
 #section-skills{
-    margin-top: 3rem;
-    margin-bottom: 5rem;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#section-skills > h1, #section-projects > h1, #section-education > h1{
+    margin: 2rem;
 }
 
 #skills-badges{
@@ -241,17 +255,26 @@ h2{
     border-radius: 100%;
 }
 
+#section-projects{
+    margin-bottom: 3rem;
+}
+
 #projects-container{
     display: flex;
     flex-wrap: wrap;
     width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .project{
     display: flex;
     flex-wrap: wrap;
+}
+
+
+.project-title{
+    width: 100%;
 }
 
 .project-info{
@@ -267,7 +290,11 @@ h2{
     height: 3rem;
 }
 
-.project .project-info a{
+.link-to-live-ver-container{
+    width: 100%;
+}
+
+.link-to-live-ver{
     display: block;
     margin: 1.5rem auto;
     border: 1px solid var(--main-color-2);
@@ -307,9 +334,10 @@ h2{
 }
 
 #section-education{
-    padding: 5vw;
-    background: linear-gradient(var(--grey-color-2) 80%, var(--grey-color-1)120%);
-
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4rem;
 }
 
 #section-education ul{
@@ -329,7 +357,7 @@ h2{
 }
 
 .education-unit-left{
-    width: 30%;
+    width: 25%;
     text-align: right;
 }
 
@@ -357,10 +385,6 @@ h2{
     z-index: -10;
 }
 
-#section-contact{
-    background: linear-gradient(var(--grey-color-2) -20%, var(--grey-color-1));
-}
-
 #social-media-container{
     padding: 1rem;
     text-align: center;
@@ -386,8 +410,71 @@ h2{
     color: var(--main-color-2);
 }
 
+.social-media:hover{
+    cursor: pointer;
+}
+
 footer{
     background-color: var(--main-color-2);
     color: var(--grey-color-2);
     text-align: center;
+}
+
+@media (min-width: 540px){
+    #section-skills{
+        width: 88%;
+    }
+    .project-info{
+        width: 60%;
+    }
+}
+
+@media (min-width: 700px){
+    #terminal{
+        width: auto;
+    }
+    #hamburger-menu{
+        display: none;
+    }
+
+    #off-canvas-nav{
+        display: none;
+    }
+
+    header{
+        display: block;
+    }
+
+    #brand{
+        width: auto;
+        display: block;
+        padding: 1rem 0 0 0.5rem;
+    }
+    #top-nav{
+        display: block;
+    }
+}
+
+@media (min-width: 900px){
+    header{
+        display: flex;
+        width: auto;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    #brand{
+        padding: 1rem;
+    }
+    #top-nav{        
+        margin-right: 1.5rem;
+    }
+    .education-unit-left{
+        width: 20%;
+    }
+
+    #projects-container, #section-skills, #section-education{
+        width: 80%;
+        max-width: 900px;
+    }
+
 }
