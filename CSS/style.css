@@ -80,7 +80,6 @@ header{
     margin-right: auto;
 }
 
-
 nav>ul{
     margin: 0;
     padding: 0;
@@ -94,9 +93,27 @@ nav>ul{
     text-shadow: 1px 1px 2px var(--black-color);
 }
 
-.top-nav-active > li{
+#top-nav li:hover{
+    cursor: pointer;
+    text-shadow: 0 0 5px var(--grey-color-2);
+}
+
+.top-nav-active > li:after{
+    display:block;
+    content: '';
+    border-bottom: 0.2rem solid var(--grey-color-2);
+    transform: scaleX(1);
+    transition: 1s;
+}
+
+#top-nav li:active:after{
+    transition: 1s;
+    transform: scaleX(0);
+    display:block;
+    content: '';
     border-bottom: 0.2rem solid var(--grey-color-2);
 }
+
 
 #off-canvas-nav{
     font-family: 'Audiowide', cursive;
@@ -305,6 +322,11 @@ h2{
     text-decoration: none;
     font-weight: bold;
     box-shadow: 5px 5px 10px var(--black-color);
+    transition: transform 0.3s;
+}
+
+.link-to-live-ver:hover{
+    transform: scale(1.1);
 }
 
 .project-image{
@@ -313,6 +335,7 @@ h2{
     margin: 1rem auto 2rem auto;
     border: 1px solid var(--black-color);
     box-shadow: 5px 5px 10px var(--black-color);
+    transition: transform 0.3s;
 }
 
 .project-image img{
@@ -320,6 +343,11 @@ h2{
     width: 10rem;
     height: 10rem;
 }
+
+.project-image:hover {
+    transform: scale(1.1); 
+}
+
 
 
 #image-code{
@@ -399,19 +427,20 @@ h2{
     display: inline-block;
     padding: 0.3rem;
     margin: 0.2rem;
-    border: 1px solid var(--main-color-2);
     font-size: 1.5rem;
     min-width: 2rem;
     min-height: 2rem;
     text-align: center;
     line-height: 1.5;
     border-radius: 100%;
-    background-color: var(--main-color-1);
-    color: var(--main-color-2);
+    background-color: var(--grey-color-1);
+    transition: 0.2s;
 }
 
 .social-media:hover{
     cursor: pointer;
+    background-color: var(--main-color-1);
+    transform: scale(1.1);
 }
 
 footer{
@@ -458,9 +487,6 @@ footer{
 @media (min-width: 900px){
     header{
         display: flex;
-        width: auto;
-        padding-left: 10%;
-        padding-right: 10%;
     }
     #brand{
         padding: 1rem;
@@ -477,4 +503,12 @@ footer{
         max-width: 900px;
     }
 
+}
+
+@media (min-width: 1000px){
+    header{        
+        width: auto;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
 }

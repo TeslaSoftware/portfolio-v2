@@ -23,10 +23,9 @@ $( document ).ready(function() {
     $(".nav-menu").click(function(){
         $("#off-canvas-nav").toggleClass("open-menu");
     });
+
+    addNavItemsListener();
     
-
-
-
 
 });
 
@@ -51,5 +50,19 @@ function typeOneLetterOfIntro(textLine){
             typeOneLetterOfIntro(introText[textLineIndex])
         }, pauseBetweenLines);
     }
+
+}
+
+function addNavItemsListener(){
+    //to get to given element there are only two way: by scolling or clicking the link
+
+    //bind event listener to clicks
+    $('#top-nav a').click(function(){
+        console.log("clicked on " + this.innerHTML);
+        $('.top-nav-active').removeClass('top-nav-active');
+        $(this).addClass('top-nav-active');
+    });
+
+    //bind position of user's scroll
 
 }
