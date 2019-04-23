@@ -11,6 +11,9 @@
     0%{
         width: 0%;
     }
+    30%{
+        width: 0%;
+    }
     100%{
         width: 100%;
     }
@@ -20,7 +23,7 @@
     0%{
         width: 100%;
     }
-    0.1%{
+    50%{
         width: 0%;
     }
     100%{
@@ -149,17 +152,20 @@ nav>ul{
     text-shadow: 0 0 5px var(--grey-color-2);
 }
 
+
+
 .top-nav-active:after{
     display:block;
     content: '';
-    border-bottom: 0.2rem solid var(--grey-color-2);
     animation: anim-grow 1s ease-in-out 1;
+    border-bottom: 0.2rem solid var(--grey-color-2);
     margin-left: auto;
     margin-right: auto;
 }
 
 .top-nav-active:active:after{
-    animation: anim-shrink 1000s 1 ; 
+    animation: anim-shrink 1s 1 ; 
+    width: 0;
 }
 
 #off-canvas-nav{

@@ -22,11 +22,11 @@ $( document ).ready(function() {
     $(".nav-menu").click(function(){
         $("#off-canvas-nav").toggleClass("open-menu");
     });
-
+    
     addNavItemsListener();
     if(!CSS.supports('scroll-behavior','smooth')){
         console.log("Native CSS scroll behaviour not supported by this browser.");
-        addScrollListener();
+        addSmoothScrollListener();
     }
     else{
         console.log("Native CSS scroll behaviour is supported by this browser.");
@@ -88,18 +88,19 @@ function addNavItemsListener(){
 
 }
 
-function addScrollListener(){
+function addSmoothScrollListener(){
     $('a[href*="#"]').on('click', function(e) {
-        e.preventDefault()
-      
-        var distanceFromTop = $($(this).attr('href')).offset().top;
-        distanceFromTop = distanceFromTop  < 500?  500 : Math.floor(distanceFromTop/2) ;
+        e.preventDefault();        
+        var distanceToTravel = Math.abs($($(this).attr('href')).offset().top - $('.top-nav-active').offset().top);
+        let timeToScroll = distanceToTravel  < 500?  500 : Math.floor(distanceToTravel/200)*75 ;
+        let positionY = $($(this).attr('href')).offset().top-100;
+        positionY = positionY <200 ? 0 : positionY; 
         $('html, body').animate(
           {
-            scrollTop: $($(this).attr('href')).offset().top,
+            scrollTop: positionY,
           },
-          distanceFromTop,
+          timeToScroll,
           'linear'
-        )
+        );
       });
 }
