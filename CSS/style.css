@@ -43,6 +43,18 @@
     }
 }
 
+@keyframes anim-fade-out{
+    0%{
+        opacity: 100%;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0%;
+    }
+}
+
 
 @keyframes anim-blink{
     0%{
@@ -59,6 +71,7 @@
 
 img, embed, object, video{
     max-width: 100%;
+    max-height: 100%;
 }
 
 
@@ -316,6 +329,10 @@ h2{
 
 #skills-badges{
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .badge-container{
@@ -325,6 +342,43 @@ h2{
     padding: 1rem;
     margin: 0.5rem;
     border-radius: 100%;
+    position: relative;
+}
+
+.badge-container >img{
+    max-height: 5rem;  
+    max-width: 5rem;  
+    position: absolute;  
+    bottom: 1rem;  
+    left: 0;  
+    right: 0;  
+    margin: auto;  
+}
+
+.badge-container:hover .tooltip{
+    visibility: visible;
+    animation:  anim-fade-in 1.5s ease-in 1;
+    transition: 1s; 
+}
+.tooltip{
+    position: absolute;
+    /*background: radial-gradient(var(--grey-color-2)40%, var(--grey-color-1)95%);*/
+    background: var(--main-color-1);
+    border: 1px solid var(--main-color-2);
+    color: var(--grey-color-2);
+    font-weight: 900;
+    top: 6.5rem;
+    left: 0;
+    right: 0;
+    padding: 0.2rem;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 5;
+    visibility: hidden;
+    transition: 0.5s;    
+    animation:  anim-fade-out 1s ease-out;
+    box-shadow: 5px 5px 10px var(--black-color);
+    opacity: 0.8;
 }
 
 #section-projects{
