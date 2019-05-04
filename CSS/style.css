@@ -363,10 +363,9 @@ h2{
 .tooltip{
     position: absolute;
     /*background: radial-gradient(var(--grey-color-2)40%, var(--grey-color-1)95%);*/
-    background: var(--main-color-1);
-    border: 1px solid var(--main-color-2);
-    color: var(--grey-color-2);
-    font-weight: 900;
+    background: var(--grey-color-1);
+    color: var(--black-color);
+    font-weight: 700;
     top: 6.5rem;
     left: 0;
     right: 0;
