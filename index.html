@@ -225,8 +225,8 @@ THE UNICORN
                     </div>
                     
                 </div>
-                <div class="project-image">
-                    <a href="Assets/TechnoTicTacToe.JPG" target= "_blank"><img src="Assets\TechnoTicTacToe.JPG"/></a>
+                <div class="project-image-div">
+                    <img class="project-image" src="Assets\TechnoTicTacToe.JPG" alt="Techno Tic-Tac-Toe"/></a>
                 </div>       
                 <div class="link-to-live-ver-container">
                     <a href="https://teslasoftware.github.io/React-Tic-Tac-Toe" class="link-to-live-ver" target="_blank">
@@ -255,8 +255,8 @@ THE UNICORN
                         <img src="Icons/javascript.svg" class="tech-icon" alt="JavaScript logo">
                     </div>
                 </div>
-                <div class="project-image">
-                    <a href="Assets/TriviaGame.JPG" target= "_blank"><img src="Assets\TriviaGame.JPG"/></a>
+                <div class="project-image-div">
+                    <img class="project-image" src="Assets\TriviaGame.JPG" alt="Trivia Game"/></a>
                 </div>     
                 <div class="link-to-live-ver-container">
                     <a href="https://codepen.io/stysler/full/eQRzNz" class="link-to-live-ver" target="_blank">
@@ -286,8 +286,8 @@ THE UNICORN
                     </div>
                     
                 </div>
-                <div class="project-image">
-                    <a href="Assets/FuelCostCalculator.JPG" target= "_blank"><img src="Assets/FuelCostCalculator.JPG"/></a>
+                <div class="project-image-div">
+                    <img class="project-image" src="Assets/FuelCostCalculator.JPG" alt="Fuel Cost Calculator"/></a>
                 </div>       
                 <div class="link-to-live-ver-container">
                     <a href="https://codepen.io/stysler/full/wjgMpO" class="link-to-live-ver" target="_blank">
@@ -295,6 +295,12 @@ THE UNICORN
                     </a>
                 </div>        
             </div>
+        </div>
+
+        <div id="modal-div">
+            <span id="modal-close-button">&times;</span>
+            <img id="modal-image"/>
+            <div id="modal-image-caption"></div>
         </div>
     </section>
 
@@ -324,7 +330,7 @@ THE UNICORN
         
         <div class="education-unit"> 
             <div class="education-unit-left">
-                    <img class="college-logo" src="Assets/LaGuardia_Community_College_logo.svg" alt="logo of LaGuardia Community College">
+                <img class="college-logo" src="Assets/LaGuardia_Community_College_logo.svg" alt="logo of LaGuardia Community College">
             </div>
             <div class="education-unit-right">
                 City University of New York - LaGuardia Community College (Long Island City, NY)
@@ -333,81 +339,75 @@ THE UNICORN
                     <li>Major: Computer Science</li>
                     <li>GPA: 3.66/4.00</li>
                 </ul>
-            </div>
-        
+            </div>        
         </div>
         
         <h2>Professional Development and Learning</h2>
         <div class="education-unit"> 
-                <div class="education-unit-left">
-                        <img class="college-logo" src="Assets/google.png" alt="logo of Google">
-                </div>
-                <div class="education-unit-right">
-                        Applied Computer Science with Android - Google, Inc.  (New York, NY)
-                    <ul>
-                        <li>Implemented concepts from Data Structures, Algorithms and Artificial Intelligence to develop several functional Android apps.</li>            
-                        <li>Used Java programming language and Android Studio IDE</li>
-                    </ul>
-                </div>
-            
-        </div>
-
-        <div class="education-unit"> 
-                <div class="education-unit-left">
-                        <img class="college-logo" src="Assets/microsoft.png" alt="logo of Microsoft">
-                </div>
-                <div class="education-unit-right">
-                    Introduction to ReactJS - Microsoft (www.edx.org)
-                    <ul>
-                        <li>Built several applications using JSX and ReactJS</li>            
-                        <li>Used in the apps the following: Functional Components, Class Components, 
-                            Conditional Rendering, State, Life Cycle Methods, Lifting Up State Pattern, Controlled Components</li>
-                    </ul>
-                </div>
-            
+            <div class="education-unit-left">
+                <img class="college-logo" src="Assets/google.png" alt="logo of Google">
             </div>
-
-        <div class="education-unit"> 
-                <div class="education-unit-left">
-                        <img class="college-logo" src="Assets/freecodecamp.svg" alt="logo of FCC">
-                </div>
-                <div class="education-unit-right">
-                        JavaScript Algorithms and Data Structures - freeCodeCamp  (www.freecodecamp.org)
-                    <ul>
-                        <li>Solved several problems using concepts from Data Structures, Algorithms, Object Oriented Programming, Functional Programming and ES6 syntax.</li>            
-                        <li>Direct link to certificate: <a href="https://www.freecodecamp.org/certification/teslasoftware/javascript-algorithms-and-data-structures" target="_blank">click here</a> </li>
-                    </ul>
-                </div>
-            
+            <div class="education-unit-right">
+                Applied Computer Science with Android - Google, Inc.  (New York, NY)
+                <ul>
+                    <li>Implemented concepts from Data Structures, Algorithms and Artificial Intelligence to develop several functional Android apps.</li>            
+                    <li>Used Java programming language and Android Studio IDE</li>
+                </ul>
+            </div>            
         </div>
 
         <div class="education-unit"> 
-                <div class="education-unit-left">
-                        <img class="college-logo" src="Assets/freecodecamp.svg" alt="logo of FCC">
-                </div>
-                <div class="education-unit-right">
-                        Responsive Web Design - freeCodeCamp  (www.freecodecamp.org)
-                    <ul>
-                        <li>Created five capstone websites using HTML, CSS, FlexBox, CSS Grid, Bootstrap, JavaScript and jQuery.</li>            
-                        <li>Direct link to certificate: <a href="https://www.freecodecamp.org/certification/teslasoftware/responsive-web-design" target="_blank">click here</a> </li>
-                    </ul>
-                </div>
-            
+            <div class="education-unit-left">
+                <img class="college-logo" src="Assets/microsoft.png" alt="logo of Microsoft">
+            </div>
+            <div class="education-unit-right">
+                Introduction to ReactJS - Microsoft (www.edx.org)
+                <ul>
+                    <li>Built several applications using JSX and ReactJS</li>            
+                    <li>Used in the apps the following: Functional Components, Class Components, 
+                        Conditional Rendering, State, Life Cycle Methods, Lifting Up State Pattern, Controlled Components</li>
+                </ul>
+            </div>            
+        </div>
+
+        <div class="education-unit"> 
+            <div class="education-unit-left">
+                <img class="college-logo" src="Assets/freecodecamp.svg" alt="logo of FCC">
+            </div>
+            <div class="education-unit-right">
+                    JavaScript Algorithms and Data Structures - freeCodeCamp  (www.freecodecamp.org)
+                <ul>
+                    <li>Solved several problems using concepts from Data Structures, Algorithms, Object Oriented Programming, Functional Programming and ES6 syntax.</li>            
+                    <li>Direct link to certificate: <a href="https://www.freecodecamp.org/certification/teslasoftware/javascript-algorithms-and-data-structures" target="_blank">click here</a> </li>
+                </ul>
+            </div>            
+        </div>
+
+        <div class="education-unit"> 
+            <div class="education-unit-left">
+                <img class="college-logo" src="Assets/freecodecamp.svg" alt="logo of FCC">
+            </div>
+            <div class="education-unit-right">
+                Responsive Web Design - freeCodeCamp  (www.freecodecamp.org)
+                <ul>
+                    <li>Created five capstone websites using HTML, CSS, FlexBox, CSS Grid, Bootstrap, JavaScript and jQuery.</li>            
+                    <li>Direct link to certificate: <a href="https://www.freecodecamp.org/certification/teslasoftware/responsive-web-design" target="_blank">click here</a> </li>
+                </ul>
+            </div>            
         </div>
         
 
         <div class="education-unit"> 
-                <div class="education-unit-left">
-                        <img class="college-logo" src="Assets/microsoft.png" alt="logo of Microsoft">
-                </div>
-                <div class="education-unit-right">
-                        Introduction to HTML and JavaScript - Microsoft (www.edx.org)
-                    <ul>
-                        <li>Built several front-end web apps using HTML, CSS, JavaScript, Bootstrap and jQuery</li>         
-                    </ul>
-                </div>
-            
+            <div class="education-unit-left">
+                <img class="college-logo" src="Assets/microsoft.png" alt="logo of Microsoft">
             </div>
+            <div class="education-unit-right">
+                Introduction to HTML and JavaScript - Microsoft (www.edx.org)
+                <ul>
+                    <li>Built several front-end web apps using HTML, CSS, JavaScript, Bootstrap and jQuery</li>         
+                </ul>
+            </div>
+        </div>
             
         <div class="education-unit"> 
             <div class="education-unit-left">
@@ -419,8 +419,7 @@ THE UNICORN
                     <li>Created HTML documents following best practices outlines by W3C</li>            
                     <li>Familiarized and used the following: HTML elements, tags and attributes, CSS and Flexbox</li>
                 </ul>
-            </div>
-        
+            </div>        
         </div>
 
     </section>
