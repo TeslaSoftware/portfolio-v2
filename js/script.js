@@ -11,19 +11,28 @@ let textLineIndex =0;
 let textLineCharacterIndex = 0;
 let indexOfSection = 0;
 
+//References to elements for handling modal images (using vanilla JS)
+var modalDiv;
+var projectImages;
+var modalImage;
+var modalImageCaption;
+
+
+
 $( document ).ready(function() {
+    initRefVars();
     document.getElementById('typed-terminal').innerHTML = "&gt ";
     setTimeout(function(){
         typeOneLetterOfIntro(introText[textLineIndex]);
     }, 1200);
-
-    //setInterval(function(){         $('#blinking-cursor').toggleClass('hidden')    }, cursorBlinkingSpeed);
 
     $(".nav-menu").click(function(){
         $("#off-canvas-nav").toggleClass("open-menu");
     });
     
     addNavItemsListener();
+    addProjectImageClickListeners();
+
     if(!CSS.supports('scroll-behavior','smooth')){
         console.log("Native CSS scroll behaviour not supported by this browser.");
         addSmoothScrollListener();
@@ -34,6 +43,14 @@ $( document ).ready(function() {
     
 
 });
+
+//Initializes reference variables
+function initRefVars(){
+    modalDiv = document.getElementById('modal-div');
+    projectImages = document.getElementsByClassName('project-image');
+    modalImage = document.getElementById('modal-image');
+    modalImageCaption = document.getElementById('modal-image-caption');
+}
 
 
 function typeOneLetterOfIntro(textLine){
@@ -103,4 +120,22 @@ function addSmoothScrollListener(){
           'linear'
         );
       });
+}
+
+function addProjectImageClickListeners(){
+    //click listeners to open modal image
+    for(let i=0; i < projectImages.length; i++){
+        console.log("addiong listener to image " + projectImages[i].alt);
+        //attach click listener to each image
+        projectImages[i].onclick = function(event){
+            console.log(event);
+            modalDiv.style.display = "block";
+            modalImage.src = this.src;
+            modalImageCaption.innerHTML = this.alt;
+        }
+    }
+    //click listener to close modal image
+    document.getElementById('modal-close-button').onclick = function(){
+        modalDiv.style.display = "none";       
+    }
 }
