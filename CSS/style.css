@@ -99,7 +99,6 @@ header{
     position: sticky;
     top: 0;
     left: 0;
-    background-color: #21C2F8; /*IE compatibility fallback*/
     background-color: var(--main-color-1);
     display: flex;
     align-items: center;
@@ -112,7 +111,6 @@ header{
     width: 90%;   
     padding: 1rem;
     margin-left: 1rem;
-    color: #F3F7F8;  /*IE compatibility fallback*/
     color: var(--grey-color-2);
     text-shadow: 2px 2px 5px var(--black-color);
     text-align: center;
@@ -120,6 +118,7 @@ header{
     font-size: 1.4rem;
 }
 
+/*top navigation styling*/
 #top-nav{    
     font-family: 'Audiowide', cursive;
     display: none;
@@ -137,17 +136,15 @@ nav>ul{
 #top-nav li{
     display: inline-block;
 }
+
 #top-nav li a{    
     display: inline-block;
     margin: 0.5rem;
-    color: #F3F7F8;  /*IE compatibility fallback*/
     color: var(--grey-color-2);
     text-shadow: 1px 1px 2px var(--black-color);
     text-decoration: none;
 }
 
-
-/*top navigation styling*/
 #top-nav li a:hover{
     cursor: pointer;
     text-shadow: 0 0 5px var(--grey-color-2);
@@ -249,9 +246,7 @@ h2{
 }
 
 #about{
-    background-color: #202020; /*IE compatibility fallback*/
     background: var(--black-color);
-    color: #F3F7F8;  /*IE compatibility fallback*/
     color: var(--grey-color-2);
     min-height: 12rem;
     display: flex;
@@ -378,7 +373,6 @@ h2{
 }
 .tooltip{
     position: absolute;
-    /*background: radial-gradient(var(--grey-color-2)40%, var(--grey-color-1)95%);*/
     background: var(--grey-color-1);
     color: var(--black-color);
     font-weight: 700;
@@ -416,6 +410,7 @@ h2{
 
 .project-title{
     width: 100%;
+    text-align: left;
 }
 
 .project-info{
@@ -433,6 +428,9 @@ h2{
 
 .link-to-live-ver-container{
     width: 50%;
+    flex-basis: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .link-to-live-ver{
@@ -567,7 +565,6 @@ h2{
     margin-left: 2rem;
 }
 
-
 .college-logo{
     height: 5rem;
     width: 5rem;
@@ -585,6 +582,7 @@ h2{
     position: relative;
     z-index: -10;
 }
+
 
 #social-media-container{
     padding: 1rem;
@@ -606,7 +604,6 @@ h2{
     text-align: center;
     line-height: 1.5;
     border-radius: 100%;
-    background-color: #BDC3C7; /*IE compatibility fallback*/
     background-color: var(--grey-color-1);
     transition: 0.2s;
 }
