@@ -152,3 +152,11 @@ footer{
     background-color: #2C3E50;
     color: #F3F7F8;
 }
+
+@media (min-width: 1000px){
+    header{        
+        width: 100%;
+        padding: 0;
+    }
+}
+
