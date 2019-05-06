@@ -18,6 +18,14 @@ var modalImage;
 var modalImageCaption;
 
 
+if(isIE()){
+    console.log("Internet Explorer detected. Loaded IE specific stylesheet.");
+}
+else{
+    console.log("No IE detected. Removed IE specific stylesheet.");
+    removeCSSforIE();
+}
+
 
 $( document ).ready(function() {
     initRefVars();
@@ -33,7 +41,8 @@ $( document ).ready(function() {
     addNavItemsListener();
     addProjectImageClickListeners();
 
-    if(!CSS.supports('scroll-behavior','smooth')){
+    //IE does not support smooth scrolling
+    if(isIE() || !CSS.supports('scroll-behavior','smooth')){
         console.log("Native CSS scroll behaviour not supported by this browser.");
         addSmoothScrollListener();
     }
@@ -125,10 +134,8 @@ function addSmoothScrollListener(){
 function addProjectImageClickListeners(){
     //click listeners to open modal image
     for(let i=0; i < projectImages.length; i++){
-        console.log("addiong listener to image " + projectImages[i].alt);
         //attach click listener to each image
-        projectImages[i].onclick = function(event){
-            console.log(event);
+        projectImages[i].onclick = function(){
             modalDiv.style.display = "block";
             modalImage.src = this.src;
             modalImageCaption.innerHTML = this.alt;
@@ -137,5 +144,22 @@ function addProjectImageClickListeners(){
     //click listener to close modal image
     document.getElementById('modal-close-button').onclick = function(){
         modalDiv.style.display = "none";       
+    }
+}
+
+/*Detect if browser used by user is IE*/
+function isIE() {
+    let ua = navigator.userAgent;
+    /* MSIE used to detect old browsers and Trident used to newer ones*/
+    return ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1;
+}
+
+function removeCSSforIE(){
+    try{
+        document.querySelector('link[href$="styleIE.css"]').remove();
+        console.log("IE specific CSS Style Sheets removed successfully.");
+    }
+    catch(err){
+        console.log("ERROR!. Cound not remove IE specific CSS Style Sheets. Error: " + err.message);
     }
 }
