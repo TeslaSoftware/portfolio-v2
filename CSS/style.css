@@ -4,7 +4,7 @@
     --black-color: #202020;
     --grey-color-1: #BDC3C7;
     --grey-color-2: #F3F7F8;
-    scroll-behavior: smooth;
+    
 }
 
 @keyframes anim-grow{
@@ -324,8 +324,8 @@ h2{
     content: "";
     width: 100%;
     height: 100%;
-    background: linear-gradient(var(--main-color-1) 10% , var(--grey-color-1) 66%, var(--grey-color-2) 120%); 
-    opacity: 0.3;
+    background: linear-gradient(var(--main-color-1) 10%, var(--grey-color-2) 120%); 
+    opacity: 0.2;
 }
 
 #section-skills{

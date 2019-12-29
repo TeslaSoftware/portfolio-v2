@@ -3,7 +3,7 @@ var introText = [
     "I'm Sebastian Tysler",
     "Full Stack Software Developer",
     "Scroll down to get to know me... "
-]
+];
 let pauseBetweenLines = 2000;
 let pauseBetweenCharacters = 50;
 let cursorBlinkingSpeed = 600;
@@ -40,16 +40,7 @@ $( document ).ready(function() {
     
     addNavItemsListener();
     addProjectImageClickListeners();
-
-    //IE does not support smooth scrolling
-    if(isIE() || !CSS.supports('scroll-behavior','smooth')){
-        console.log("Native CSS scroll behaviour not supported by this browser.");
-        addSmoothScrollListener();
-    }
-    else{
-        console.log("Native CSS scroll behaviour is supported by this browser.");
-    }
-    
+    addSmoothScrollListener();
 
 });
 
@@ -115,20 +106,8 @@ function addNavItemsListener(){
 }
 
 function addSmoothScrollListener(){
-    $('a[href*="#"]').on('click', function(e) {
-        e.preventDefault();        
-        var distanceToTravel = Math.abs($($(this).attr('href')).offset().top - $('.top-nav-active').offset().top);
-        let timeToScroll = distanceToTravel  < 500?  500 : Math.floor(distanceToTravel/200)*75 ;
-        let positionY = $($(this).attr('href')).offset().top-100;
-        positionY = positionY <200 ? 0 : positionY; 
-        $('html, body').animate(
-          {
-            scrollTop: positionY,
-          },
-          timeToScroll,
-          'linear'
-        );
-      });
+    //use custom smooth scroll event handler
+    $('a[href*="#"]').on('click', smoothScroll);
 }
 
 function addProjectImageClickListeners(){
@@ -162,4 +141,40 @@ function removeCSSforIE(){
     catch(err){
         console.log("ERROR!. Cound not remove IE specific CSS Style Sheets. Error: " + err.message);
     }
+}
+
+//beautiful smooth scroll with offset for header/navbar -> compatible with IE and old browsers
+function smoothScroll(event){
+    var startPosition = window.pageYOffset
+    var destination = document.getElementById(event.target.hash.replace("#",""));
+    var targetPosition = destination.getBoundingClientRect().top;
+    var headerOffset = document.querySelector("header").offsetHeight;
+    //speed: 1 is base speed. values between 0 and 1 (e.g 0.3) will slow down animation. Values greater than 1 will make it faster.
+    var speed = 2;
+    //duration is equivalent to distance traveled which is absolute value of target position (it could be negative!).
+    var duration = Math.abs(targetPosition) * (1 / speed);
+    var startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
+    var documentHeight = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
+    var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+    var destinationOffset = destination.offsetTop-headerOffset;
+    var destinationOffsetToScroll = Math.round(documentHeight - destinationOffset < windowHeight ? documentHeight - windowHeight : destinationOffset);
+    var timeoutVal = 3000; //in ms, so 3000 = 3s
+    var timeout = 'now' in window.performance ? performance.now() + timeoutVal : new Date().getTime() + timeoutVal;
+
+    function scroll() {
+        var now = 'now' in window.performance ? performance.now() : new Date().getTime();
+        var time = Math.min(1, ((now - startTime) / duration));
+        var timeFunction = easeInFunction(time);
+        window.scroll(0, Math.ceil((timeFunction * (destinationOffsetToScroll - startPosition)) + startPosition));
+        //stop recursive calls when you reach your destination
+        if (Math.ceil(window.pageYOffset) === destinationOffsetToScroll || now > timeout) {  return; }
+        //recursive call
+        requestAnimationFrame(scroll);
+    }
+    scroll();
+}
+
+//easeInOutQuad
+function easeInFunction(t){
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
 }
