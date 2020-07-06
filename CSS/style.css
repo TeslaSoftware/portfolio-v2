@@ -204,6 +204,7 @@ nav>ul{
     box-shadow: 1px 2px 1px 1px var(--grey-color-1);
     transition: 0.5s;
     font-size: 1.3rem;
+    z-index: 5;
 }
 
 #off-canvas-nav a{
